@@ -1,6 +1,6 @@
-import { HeartFilledIcon, Logo, MainIcon } from "@/components/icons";
+import { HeartFilledIcon, } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
-import { Add01Icon, Agreement01Icon, Agreement02FreeIcons, AiEditingIcon, AiIdeaIcon, ArrowRight02FreeIcons, ArrowUpRight01Icon, CodeCircleIcon, CodeFolderIcon, CodeIcon, LineFreeIcons, SmileDizzyFreeIcons } from "@hugeicons/core-free-icons";
+import { Add01Icon, Agreement02FreeIcons, ArrowRight02FreeIcons, ArrowUpRight01Icon, CodeFolderIcon, } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
