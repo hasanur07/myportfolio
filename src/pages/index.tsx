@@ -1,12 +1,13 @@
 import { HeartFilledIcon, } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
-import { Add01Icon, Agreement02FreeIcons, ArrowRight01Icon, ArrowRight02FreeIcons, ArrowUpRight01Icon, CodeFolderIcon, } from "@hugeicons/core-free-icons";
+import { Add01Icon, Agreement02FreeIcons, ArrowRight01Icon, ArrowRight02FreeIcons, ArrowUpRight01Icon, CodeFolderIcon, WhatsappIcon, } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarGroup } from "@heroui/avatar";
+import { Button } from "@heroui/button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,6 +140,23 @@ export default function IndexPage() {
         </div>
       </section>
       <ReviewSection />
+      <section className="flex flex-col gap-6 relative w-full h-auto sm:h-[100dvh] justify-center items-center">
+        <img src="/avatar-2.png" className="w-[100px]"/>
+        <h5 className="text-[50px] leading-16 text-center">Are you looking for the<br/>perfect one?</h5>
+        <p className="text-center text-lg font-light">Then you’re in the right place. Get the best designs you’re looking for.<br/>Just reach out and let me know!</p>
+        <div className="flex gap-4">
+          <Button color="default" size="lg" radius="full" className="bg-white text-black" onPress={()=>window.location.href="mail:hasanur@graphixel.in"}>Email Me</Button>
+          <Button color="primary" size="lg" radius="full" startContent={<HugeiconsIcon icon={WhatsappIcon}/>} className="px-4 bg-green-500 text-black">Chat On Whatsapp</Button>
+        </div>
+        <div className="flex flex-wrap px-4 gap-6 text-[18px] w-full sm:w-[45rem] justify-center sm:justify-between items-center font-light py-4"> 
+          <Link to="https://github.com/hasanur07" target="_blank">GitHub</Link>
+          <Link to="https://www.linkedin.com/in/mrhasanur/" target="_blank">LinkedIn</Link>
+          <Link to="#" target="_blank">Behance</Link>
+          <Link to="#" target="_blank">Dribbble</Link>
+          <Link to="https://instagram.com/hasanur.12" target="_blank">Instagram</Link>
+        </div>
+        <span className="flex gap-2"><p>With 💕 By</p><p className="text-blue-400 cursor-pointer">hasanur.io</p></span>
+      </section>
     </DefaultLayout >
   );
 }
@@ -183,7 +201,7 @@ function ReviewSection() {
           icon={ArrowRight02FreeIcons}
           size={16}
         />
-        <p>Client Review</p>
+        <p>Client Reviews</p>
         <HugeiconsIcon
           icon={ArrowRight02FreeIcons}
           size={16}
