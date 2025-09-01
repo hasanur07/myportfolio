@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroui/avatar": "^2.2.21",
     "@heroui/button": "^2.2.24",
     "@heroui/code": "^2.2.18",
     "@heroui/dropdown": "^2.3.24",
@@ -19,9 +20,9 @@
     "@heroui/navbar": "^2.2.22",
     "@heroui/snippet": "^2.2.25",
     "@heroui/switch": "^2.2.22",
-    "@heroui/system": "^2.4.20",
+    "@heroui/system": "^2.4.21",
     "@heroui/tabs": "^2.2.21",
-    "@heroui/theme": "^2.4.20",
+    "@heroui/theme": "^2.4.21",
     "@heroui/use-theme": "2.1.10",
     "@hugeicons/core-free-icons": "^1.0.16",
     "@hugeicons/react": "^1.0.5",
