@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Avatar, AvatarGroup, AvatarIcon } from "@heroui/avatar";
+import { Avatar, AvatarGroup } from "@heroui/avatar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -226,7 +226,7 @@ function ReviewSection() {
 
 function ReviewBox() {
   return (
-    <div className="flex flex-col relative bg-foreground-100/2 border-white/10 border-2 rounded-2xl p-4 w-[calc(100vw-2rem)] sm:w-[380px] shrink-0">
+    <div className="flex flex-col relative bg-foreground-100/2 border-white/10 border-2 rounded-2xl p-4 w-[calc(100vw-2rem)] sm:w-[380px] shrink-0 cursor-pointer hover:bg-foreground-50">
       <div className="flex gap-2">
         <Avatar radius="full" src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
         <span className="leading-5">
