@@ -145,8 +145,8 @@ export default function IndexPage() {
         <h5 className="text-[50px] leading-16 text-center">Are you looking for the<br/>perfect one?</h5>
         <p className="text-center text-lg font-light">Then you’re in the right place. Get the best designs you’re looking for.<br/>Just reach out and let me know!</p>
         <div className="flex gap-4">
-          <Button color="default" size="lg" radius="full" className="bg-white text-black" onPress={()=>window.location.href="mail:hasanur@graphixel.in"}>Email Me</Button>
-          <Button color="primary" size="lg" radius="full" startContent={<HugeiconsIcon icon={WhatsappIcon}/>} className="px-4 bg-green-500 text-black">Chat On Whatsapp</Button>
+          <Button color="default" size="lg" radius="full" className="bg-white text-black" onPress={()=>window.location.href="mailto:hasanur@graphixel.in"} title="hasanur@doclet.app">Email Me</Button>
+          <Button color="primary" size="lg" radius="full" startContent={<HugeiconsIcon icon={WhatsappIcon} />} className="px-4 bg-green-500 text-black" onPress={()=>window.location.href="https://wa.me/9051713742"}>Chat On Whatsapp</Button>
         </div>
         <div className="flex flex-wrap px-4 gap-6 text-[18px] w-full sm:w-[45rem] justify-center sm:justify-between items-center font-light py-4"> 
           <Link to="https://github.com/hasanur07" target="_blank">GitHub</Link>

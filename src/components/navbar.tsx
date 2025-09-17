@@ -46,7 +46,7 @@ export const Navbar = () => {
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
-        <Button variant="bordered" radius="full" color="default" className="pr-1.5 border-white">
+        <Button variant="bordered" radius="full" color="default" className="pr-1.5 border-white" onPress={()=>window.location.href="https://wa.me/9051713742"}>
           Contact Me
           <div className="bg-white rounded-full flex justify-center items-center w-14 h-7">
             <HugeiconsIcon
