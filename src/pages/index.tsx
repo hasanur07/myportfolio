@@ -8,6 +8,7 @@ import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarGroup } from "@heroui/avatar";
 import { Button } from "@heroui/button";
+import WhoIAm from "@/components/home/whoiam";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,7 +40,7 @@ export default function IndexPage() {
   }, []);
   return (
     <DefaultLayout>
-      <section className="flex relative flex-col w-full h-[100dvh] items-center justify-center">
+      <section className="flex relative flex-col w-full h-[100svh] items-center justify-center">
         <span className="flex flex-col text-3xl font-medium justify-center items-center w-[120%] sm:w-full scale-80 sm:scale-100">
           <span className="flex gap-2 items-center">
             <p>I am</p>
@@ -88,7 +89,10 @@ export default function IndexPage() {
           <p>🔥</p>
         </div>
       </section>
-      <section className="flex relative w-full h-auto sm:h-[100dvh] items-center justify-center">
+      <section className="flex relative w-full h-[300vh]">
+        <WhoIAm />
+      </section>
+      <section className="flex relative w-full h-auto sm:h-[100vh] items-center justify-center -mt-[70vh]">
         <p ref={AboutTextContainer} className="flex h-[150vh] sm:h-auto flex-wrap text-[42px] max-w-[75rem] justify-center leading-8 sm:leading-14 gap-2 my-6 sm:my-0">
           {text.split(" ").map((word, i) => (
             <span key={i} className="fade-word inline-block opacity-50">
@@ -141,14 +145,14 @@ export default function IndexPage() {
       </section>
       <ReviewSection />
       <section className="flex flex-col gap-6 relative w-full h-auto sm:h-[100dvh] justify-center items-center">
-        <img src="/avatar-2.png" className="w-[100px]"/>
-        <h5 className="text-[50px] leading-16 text-center">Are you looking for the<br/>perfect one?</h5>
-        <p className="text-center text-lg font-light">Then you’re in the right place. Get the best designs you’re looking for.<br/>Just reach out and let me know!</p>
+        <img src="/avatar-2.png" className="w-[100px]" />
+        <h5 className="text-[50px] leading-16 text-center">Are you looking for the<br />perfect one?</h5>
+        <p className="text-center text-lg font-light">Then you’re in the right place. Get the best designs you’re looking for.<br />Just reach out and let me know!</p>
         <div className="flex gap-4">
-          <Button color="default" size="lg" radius="full" className="bg-white text-black" onPress={()=>window.location.href="mailto:hasanur@graphixel.in"} title="hasanur@doclet.app">Email Me</Button>
-          <Button color="primary" size="lg" radius="full" startContent={<HugeiconsIcon icon={WhatsappIcon} />} className="px-4 bg-green-500 text-black" onPress={()=>window.location.href="https://wa.me/9051713742"}>Chat On Whatsapp</Button>
+          <Button color="default" size="lg" radius="full" className="bg-white text-black" onPress={() => window.location.href = "mailto:hasanur@graphixel.in"} title="hasanur@doclet.app">Email Me</Button>
+          <Button color="primary" size="lg" radius="full" startContent={<HugeiconsIcon icon={WhatsappIcon} />} className="px-4 bg-green-500 text-black" onPress={() => window.location.href = "https://wa.me/9051713742"}>Chat On Whatsapp</Button>
         </div>
-        <div className="flex flex-wrap px-4 gap-6 text-[18px] w-full sm:w-[45rem] justify-center sm:justify-between items-center font-light py-4"> 
+        <div className="flex flex-wrap px-4 gap-6 text-[18px] w-full sm:w-[45rem] justify-center sm:justify-between items-center font-light py-4">
           <Link to="https://github.com/hasanur07" target="_blank">GitHub</Link>
           <Link to="https://www.linkedin.com/in/mrhasanur/" target="_blank">LinkedIn</Link>
           <Link to="#" target="_blank">Behance</Link>
@@ -169,11 +173,13 @@ function ReviewSection() {
     const section = sectionRef.current;
     const reviewRow = reviewRef.current;
 
-    const totalWidth = reviewRow?.scrollWidth!;
+    if (!section || !reviewRow) return;
+
+    const totalWidth = reviewRow.scrollWidth;
     const windowWidth = window.innerWidth;
     const scrollDistance = totalWidth - windowWidth;
 
-    // kill old triggers if remounted (important in React)
+    // Kill old triggers
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
     gsap.to(reviewRow, {
@@ -182,19 +188,19 @@ function ReviewSection() {
       scrollTrigger: {
         trigger: section,
         pin: true,
-        scrub: true,
+        scrub: 0.5,
         start: "top top",
-        end: `+=${scrollDistance}`,
+        end: () => `+=${section.offsetHeight + scrollDistance}`,
         invalidateOnRefresh: true,
       },
     });
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+
+    return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   }, []);
 
+
   return (
-    <section ref={sectionRef} className="flex relative w-full px-0 sm:px-4 h-[100dvh] items-center overflow-hidden">
+    <section ref={sectionRef} className="flex relative w-full px-0 sm:px-4 h-[100vh] items-center overflow-hidden">
       <div className="font-dm flex absolute top-10 p-2 gap-1 border border-white/20 rounded-full h-12 justify-center items-center left-1/2 -translate-x-1/2">
         <p>✨</p>
         <HugeiconsIcon

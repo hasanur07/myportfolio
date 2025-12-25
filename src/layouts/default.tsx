@@ -6,9 +6,9 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex flex-col h-screen">
+    <div className="relative flex flex-col h-[100svh]">
       <Navbar />
-      <main className="-mt-16">
+      <main>
         {children}
       </main>
     </div>

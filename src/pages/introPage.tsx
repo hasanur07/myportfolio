@@ -48,7 +48,7 @@ export default function IntroPage() {
         });
     }, []);
     return (
-        <div ref={divRef} className="w-full h-[100dvh] flex fixed top-0 left-0 z-50 bg-white justify-center items-center overflow-hidden">
+        <div ref={divRef} className="w-full h-[100dvh] flex fixed top-0 left-0 z-55 bg-white justify-center items-center overflow-hidden">
             <div className="flex overflow-hidden scale-85 sm:scale-100">
                 {word.split("").map((char, i) => (
                     <div
