@@ -4,7 +4,7 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex flex-col h-[100svh]">
+    <div className="relative flex flex-col h-[100svh] w-screen">
       <main>
         {children}
       </main>

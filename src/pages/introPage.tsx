@@ -13,12 +13,17 @@ export default function IntroPage() {
             height: 0,
             duration: 1.5,
             ease: "power2.out",
-            delay: 2.5
+            delay: 2.5,
+            onComplete: () => {
+                document.body.style.overflowY = "auto";
+            }
         });
     }, [])
     useLayoutEffect(() => {
         if (!columnsRef.current.length) return;
-
+        setTimeout(() => {
+            document.body.style.overflow = "hidden";
+        }, 200);
         columnsRef.current.forEach((col, i) => {
             const distance = (duplicates - 1) * letterHeight;
 

@@ -23,21 +23,21 @@ export const Navbar = () => {
       document.body.style.overflow = "auto";
     }
   }, [isOpen]);
-  useLayoutEffect(() => {
-    const nav = navRef.current;
-    if (!nav) return;
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        nav.classList.add("bg-black/90", "backdrop-blur-sm", "border-b", "border-white/10");
-      } else {
-        nav.classList.remove("bg-black/90", "backdrop-blur-sm", "border-b", "border-white/10");
-      }
-    }
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    }
-  }, [navRef]);
+  // useLayoutEffect(() => {
+  //   const nav = navRef.current;
+  //   if (!nav) return;
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 50) {
+  //       nav.classList.add("bg-black/90", "backdrop-blur-sm", "border-b", "border-white/10");
+  //     } else {
+  //       nav.classList.remove("bg-black/90", "backdrop-blur-sm", "border-b", "border-white/10");
+  //     }
+  //   }
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   }
+  // }, [navRef]);
 
   function openMenu() {
     const section = sectionRef.current;
@@ -121,7 +121,7 @@ export const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="w-full h-[58px] px-6 sm:px-16 py-4 flex justify-between fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm z-50">
+      className="w-full h-[58px] px-6 sm:px-16 py-4 flex justify-between fixed top-0 left-0 right-0 z-50">
       <Link to="/" className="flex items-center gap-0.5 text-white">
         <p className="text-xl">
           Hasanur Mondal

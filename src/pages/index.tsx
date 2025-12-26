@@ -1,43 +1,18 @@
 import { HeartFilledIcon, } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
-import { Add01Icon, Agreement02FreeIcons, ArrowRight01Icon, ArrowRight02FreeIcons, ArrowUpRight01Icon, CodeFolderIcon, WhatsappIcon, } from "@hugeicons/core-free-icons";
+import { Add01Icon, Agreement02FreeIcons, ArrowRight02FreeIcons, CodeFolderIcon, WhatsappIcon, } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Avatar, AvatarGroup } from "@heroui/avatar";
 import { Button } from "@heroui/button";
 import WhoIAm from "@/components/home/whoiam";
+import Projects from "@/components/home/project";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function IndexPage() {
-  const AboutTextContainer = useRef<HTMLDivElement>(null);
-  const text =
-    "I’m Hasanur Mondal, and I design experiences that people love to use. I focus on making digital products that feel intuitive and easy, while also solving real problems. My goal is to create clean, thoughtful designs that make a difference for both users and businesses!";
-  useLayoutEffect(() => {
-    if (!AboutTextContainer.current) return;
-
-    const words = AboutTextContainer.current.querySelectorAll(".fade-word");
-
-    gsap.fromTo(
-      words,
-      { opacity: 0.25 },
-      {
-        opacity: 1,
-        ease: "power1.inOut",
-        duration: 2,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: AboutTextContainer.current,
-          start: "top 50%",
-          end: "bottom 55%",
-          scrub: true,
-        },
-      }
-    );
-  }, []);
   return (
     <DefaultLayout>
       <section className="flex relative flex-col w-full h-[100svh] items-center justify-center">
@@ -89,176 +64,64 @@ export default function IndexPage() {
           <p>🔥</p>
         </div>
       </section>
-      <section className="flex relative w-full h-[280vh]">
+      <section className="flex relative w-full">
         <WhoIAm />
       </section>
-      <section className="flex relative w-full h-auto sm:h-[100vh] items-center justify-center -mt-[40vh] sm:-mt-[70vh]">
-        <p ref={AboutTextContainer} className="flex h-[150vh] sm:h-auto flex-wrap text-[42px] max-w-[75rem] justify-center leading-0 sm:leading-14 gap-2 px-10 sm:px-0">
-          {text.split(" ").map((word, i) => (
-            <span key={i} className="fade-word inline-block opacity-50">
-              {word}
-            </span>
-          ))}
-        </p>
+      <section className="flex relative w-screen">
+        <Projects />
       </section>
-      <section className="flex relative w-full h-[250vh] px-0 sm:px-4 sm:h-[100dvh] items-center justify-center">
-        <div className="font-dm flex absolute top-10 p-2 gap-1 border border-white/20 rounded-full h-12 justify-center items-center">
-          <p>🤖</p>
-          <HugeiconsIcon
-            icon={ArrowRight02FreeIcons}
-            size={16}
-          />
-          <p>Project Showcase</p>
-          <HugeiconsIcon
-            icon={ArrowRight02FreeIcons}
-            size={16}
-          />
-          <p>🥰</p>
-        </div>
-        <Link to="#" className="font-dm flex absolute bottom-10 p-2 pl-4 hover:bg-foreground-100 border border-white/20 rounded-full h-12 justify-center items-center gap-2">
-          <p>Explore All</p>
-          <div className="bg-white rounded-full flex justify-center items-center w-14 h-7">
-            <HugeiconsIcon
-              icon={ArrowUpRight01Icon}
-              size={18}
-              color="black"
-            />
-          </div>
-        </Link>
-        <div className="max-w-[75rem] grid grid-cols-1 grid-rows-3 sm:grid-rows-1 sm:grid-cols-2 md:grid-rows-1 md:grid-cols-3 gap-4">
-          <div className="flex flex-col gap-4 relative rounded-3xl p-4 hover:bg-green-300/20 transition cursor-pointer">
-            <img className="flex rounded-2xl" src="https://cdn.dribbble.com/userupload/4383191/file/original-1192996cc6f4172597ad5617d87d4079.jpg?resize=752x&vertical=center" alt="" />
-            <h5 className="text-3xl text-center">Unnathi - Kerala Empowerment Society</h5>
-            <p className="text-sm opacity-50 text-center">Unnathi (Kerala Empowerment Society) is an initiative by the Government of Kerala, registered under the Travancore-Cochin Literary, Scientific and Charitable Societies Registration Act.</p>
-          </div>
-          <div className="flex flex-col gap-4 relative rounded-3xl p-4 hover:bg-blue-400/20 transition cursor-pointer">
-            <img className="flex rounded-2xl" src="/689ba54e5b61d189139448.png" alt="" />
-            <h5 className="text-3xl text-center">OpenGrad - Entrance Exam Solution</h5>
-            <p className="text-sm opacity-50 text-center">Unnathi (Kerala Empowerment Society) is an initiative by the Government of Kerala, registered under the Travancore-Cochin Literary, Scientific and Charitable Societies Registration Act.</p>
-          </div>
-          <div className="flex flex-col sm:hidden md:flex gap-4 relative rounded-3xl p-4 hover:bg-gray-500/20 transition cursor-pointer">
-            <img className="flex rounded-2xl" src="/689c61f22aa5f873796412.png" alt="" />
-            <h5 className="text-3xl text-center">Urban Trash - Waste management system</h5>
-            <p className="text-sm opacity-50 text-center">Unnathi (Kerala Empowerment Society) is an initiative by the Government of Kerala, registered under the Travancore-Cochin Literary, Scientific and Charitable Societies Registration Act.</p>
-          </div>
-        </div>
-      </section>
-      <ReviewSection />
-      <section className="flex flex-col gap-6 relative w-full h-auto sm:h-[100dvh] justify-center items-center">
-        <img src="/avatar-2.png" className="w-[100px]" />
-        <h5 className="text-[50px] leading-16 text-center">Are you looking for the<br />perfect one?</h5>
-        <p className="text-center text-lg font-light">Then you’re in the right place. Get the best designs you’re looking for.<br />Just reach out and let me know!</p>
-        <div className="flex gap-4">
-          <Button color="default" size="lg" radius="full" className="bg-white text-black" onPress={() => window.location.href = "mailto:hasanur@graphixel.in"} title="hasanur@doclet.app">Email Me</Button>
-          <Button color="primary" size="lg" radius="full" startContent={<HugeiconsIcon icon={WhatsappIcon} />} className="px-4 bg-green-500 text-black" onPress={() => window.location.href = "https://wa.me/9051713742"}>Chat On Whatsapp</Button>
-        </div>
-        <div className="flex flex-wrap px-4 gap-6 text-[18px] w-full sm:w-[45rem] justify-center sm:justify-between items-center font-light py-4">
-          <Link to="https://github.com/hasanur07" target="_blank">GitHub</Link>
-          <Link to="https://www.linkedin.com/in/mrhasanur/" target="_blank">LinkedIn</Link>
-          <Link to="#" target="_blank">Behance</Link>
-          <Link to="#" target="_blank">Dribbble</Link>
-          <Link to="https://instagram.com/hasanur.12" target="_blank">Instagram</Link>
-        </div>
-        <span className="flex gap-2"><p>With 💕 By</p><p className="text-blue-400 cursor-pointer">hasanur.io</p></span>
+      <section className="flex relative w-full">
+        <Futter />
       </section>
     </DefaultLayout >
   );
 }
 
 
-function ReviewSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const reviewRef = useRef<HTMLDivElement>(null);
+function Futter() {
+  const divRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
-    const section = sectionRef.current;
-    const reviewRow = reviewRef.current;
-
-    if (!section || !reviewRow) return;
-
-    const totalWidth = reviewRow.scrollWidth;
-    const windowWidth = window.innerWidth;
-    const scrollDistance = totalWidth - windowWidth;
-
-    // Kill old triggers
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
-    gsap.to(reviewRow, {
-      x: -scrollDistance,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        pin: true,
-        scrub: 0.5,
-        start: "top top",
-        end: () => `+=${section.offsetHeight + scrollDistance}`,
-        invalidateOnRefresh: true,
-      },
+    gsap.matchMedia().add("(min-width: 640px)", () => {
+      const div = divRef.current;
+      if (!div) return;
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: div,
+          start: "top top",
+          end: "+=100%",
+          scrub: true,
+        }
+      });
+      tl.fromTo(div, {
+        xPercent: 100
+      }, {
+        xPercent: 0,
+      });
+      return () => {
+        tl.scrollTrigger?.kill();
+      };
     });
-
-    return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   }, []);
-
-
   return (
-    <section ref={sectionRef} className="flex relative w-full px-0 sm:px-4 h-[100vh] items-center overflow-hidden pt-16">
-      <div className="font-dm flex absolute top-18 p-2 gap-1 border border-white/20 rounded-full h-12 justify-center items-center left-1/2 -translate-x-1/2">
-        <p>✨</p>
-        <HugeiconsIcon
-          icon={ArrowRight02FreeIcons}
-          size={16}
-        />
-        <p>Client Reviews</p>
-        <HugeiconsIcon
-          icon={ArrowRight02FreeIcons}
-          size={16}
-        />
-        <p>🎁🎀</p>
+    <div className="flex flex-col h-[100svh] sm:h-[250vh] w-screen sm:-mt-[200vh] relative">
+      <div className="flex sm:sticky top-0 overflow-hidden h-screen justify-center items-center">
+        <section ref={divRef} className="flex flex-col gap-6 w-full h-screen justify-center items-center bg-black">
+          <img src="/avatar-2.png" className="w-[100px]" />
+          <h5 className="text-3xl sm:text-[50px] sm:leading-16 text-center">Are you looking for the<br />perfect one?</h5>
+          <p className="text-center text-lg font-light px-2 sm:px-0">Then you’re in the right place. Get the best designs you’re looking for.<br />Just reach out and let me know!</p>
+          <div className="flex gap-4">
+            <Button color="default" size="lg" radius="full" className="bg-white text-black" onPress={() => window.location.href = "mailto:hasanur@graphixel.in"} title="hasanur@doclet.app">Email Me</Button>
+            <Button color="primary" size="lg" radius="full" startContent={<HugeiconsIcon icon={WhatsappIcon} />} className="px-4 bg-green-500 text-black" onPress={() => window.location.href = "https://wa.me/9051713742"}>Chat On Whatsapp</Button>
+          </div>
+          <div className="flex flex-wrap px-4 gap-2 sm:gap-6 text-[18px] w-full sm:w-[45rem] justify-center sm:justify-between items-center font-light pt-4">
+            <Link to="https://github.com/hasanur07" target="_blank">GitHub</Link>
+            <Link to="https://www.linkedin.com/in/mrhasanur/" target="_blank">LinkedIn</Link>
+            <Link to="#" target="_blank">Behance</Link>
+            <Link to="#" target="_blank">Dribbble</Link>
+            <Link to="https://instagram.com/hasanur.12" target="_blank">Instagram</Link>
+          </div>
+          <span className="flex gap-2"><p>With 💕 By</p><p className="text-blue-400 cursor-pointer">hasanur.io</p></span>
+        </section>
       </div>
-      <Link to="#" className="font-dm flex absolute bottom-10 p-2 hover:bg-foreground-100 border border-white/20 rounded-full h-12 justify-center gap-2 left-1/2 -translate-x-1/2">
-        <AvatarGroup
-          isBordered
-          max={3}
-          renderCount={(count) => (
-            <p className="text-small text-foreground font-medium ms-2">+{count} others</p>
-          )}
-          total={10}
-          size="sm"
-        >
-          <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" />
-          <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
-        </AvatarGroup>
-        <div className="bg-white rounded-full flex justify-center items-center w-14 h-7">
-          <HugeiconsIcon
-            icon={ArrowRight01Icon}
-            size={18}
-            color="black"
-          />
-        </div>
-      </Link>
-      <div ref={reviewRef} className="flex gap-4 px-4 sm:px-[calc(100vw-85rem)]">
-        {Array.from([1, 2, 3, 4, 5, 6]).map((i) => {
-          return <ReviewBox key={i} />
-        })}
-      </div>
-    </section>
-  )
-}
-
-function ReviewBox() {
-  return (
-    <div className="flex flex-col relative bg-foreground-100/2 border-white/10 border-2 rounded-2xl p-4 w-[calc(100vw-2rem)] sm:w-[380px] shrink-0 cursor-pointer hover:bg-foreground-50">
-      <div className="flex gap-2">
-        <Avatar radius="full" src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
-        <span className="leading-5">
-          <h5>Tony Rechart</h5>
-          <p className="text-sm opacity-50">Founder, XYZ</p>
-        </span>
-      </div>
-      <p className="pt-2 opacity-85">"OpenGrad Foundation is dedicated to free and fair education, addressing the limitations of traditional board examinations in securing admission to prestigious institutions and future employability."</p>
-    </div>
-  )
+    </div>);
 }
