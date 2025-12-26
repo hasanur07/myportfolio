@@ -28,9 +28,9 @@ export const Navbar = () => {
     if (!nav) return;
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        nav.classList.add("bg-black/90", "backdrop-blur-sm","border-b","border-white/10");
+        nav.classList.add("bg-black/90", "backdrop-blur-sm", "border-b", "border-white/10");
       } else {
-        nav.classList.remove("bg-black/90", "backdrop-blur-sm","border-b","border-white/10");
+        nav.classList.remove("bg-black/90", "backdrop-blur-sm", "border-b", "border-white/10");
       }
     }
     window.addEventListener("scroll", handleScroll);
@@ -38,87 +38,91 @@ export const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     }
   }, [navRef]);
-  useLayoutEffect(() => {
+
+  function openMenu() {
     const section = sectionRef.current;
     if (!section) return;
-    const button = buttonRef.current;
-    if (!button) return;
+    setIsAnimating(true);
+    gsap.fromTo(section, {
+      clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
+    },
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 1,
+        ease: "hop",
+        onComplete: () => {
+          setIsAnimating(false);
+        }
+      });
+    const slideTexts = section.querySelectorAll(".slide-text");
+    slideTexts.forEach((text, index) => {
+      gsap.fromTo(text, {
+        y: 20,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power4.out",
+        delay: 0.5 + index * 0.05
+      },);
+    });
+    gsap.fromTo(section.querySelectorAll(".section-box"), {
+      height: 0
+    }, {
+      height: "100%",
+      duration: 1,
+      ease: "power4.out",
+      delay: 0.25
+    });
+    gsap.fromTo(section.querySelectorAll(".section-header span"), {
+      rotateY: 90,
+      y: "100%",
+      x: 100,
+    }, {
+      rotateY: 0,
+      y: 0,
+      x: 0,
+      stagger: 0.1,
+      duration: 1,
+      ease: "power4.out",
+      delay: 0.5,
+    });
+  }
 
-    const handleClick = () => {
-      if (isAnimating) return;
-      setIsAnimating(true);
-      setIsOpen((prev) => !prev);
-      if (!isOpen) {
-        gsap.fromTo(section, {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
-        },
-          {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            duration: 1,
-            ease: "hop",
-            onComplete: () => {
-              setIsAnimating(false);
-            }
-          });
-        const slideTexts = section.querySelectorAll(".slide-text");
-        slideTexts.forEach((text, index) => {
-          gsap.fromTo(text, {
-            y: 20,
-            opacity: 0
-          }, {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power4.out",
-            delay: 0.5 + index * 0.05
-          },);
-        });
-        gsap.fromTo(section.querySelectorAll(".section-box"), {
-          height: 0
-        }, {
-          height: "100%",
-          duration: 1,
-          ease: "power4.out",
-          delay: 0.25
-        });
-        gsap.fromTo(section.querySelectorAll(".section-header span"), {
-          rotateY: 90,
-          y: "100%",
-          x: 100,
-        }, {
-          rotateY: 0,
-          y: 0,
-          x: 0,
-          stagger: 0.1,
-          duration: 1,
-          ease: "power4.out",
-          delay: 0.5,
-        });
-      } else {
-        gsap.fromTo(section, {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
-        },
-          {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-            duration: 0.5,
-            ease: "power4.inOut",
-            onComplete: () => {
-              setIsAnimating(false);
-            }
-          });
-      }
-    }
+  function closeMenu() {
+    const section = sectionRef.current;
+    if (!section) return;
+    setIsAnimating(true);
+    gsap.fromTo(section, {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+    },
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 0.5,
+        ease: "power4.inOut",
+        onComplete: () => {
+          setIsAnimating(false);
+        }
+      });
+  }
 
-    button.addEventListener("click", handleClick);
-    return () => {
-      button.removeEventListener("click", handleClick);
-    };
-  }, [buttonRef, isAnimating]);
+  const MyLink = ({ to, className, children }: { to: string, className?: string, children: React.ReactNode }) => {
+    return (
+      <Link to={to} className={className} onClick={() => {
+        setIsOpen(false);
+        closeMenu();
+      }}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <nav
       ref={navRef}
       className="w-full h-[58px] px-6 sm:px-16 py-4 flex justify-between fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-sm z-50">
-      <Link className="flex items-center gap-0.5 text-white" to="/">
+      <Link to="/" className="flex items-center gap-0.5 text-white">
         <p className="text-xl">
           Hasanur Mondal
         </p>
@@ -130,6 +134,16 @@ export const Navbar = () => {
         <div
           onMouseEnter={() => setIsMouseOver(true)}
           onMouseLeave={() => setIsMouseOver(false)}
+          onClick={() => {
+            if (isAnimating) return;
+            setIsAnimating(true);
+            setIsOpen((prev) => !prev);
+            if (!isOpen) {
+              openMenu();
+            } else {
+              closeMenu();
+            }
+          }}
           ref={buttonRef}
           className={clsx(
             "flex relative items-center rounded-full bg-white text-black text-[12px] h-10 cursor-pointer group transition-all duration-300 ease-in-out",
@@ -186,31 +200,31 @@ export const Navbar = () => {
       >
         <div>
           <div className="w-full h-[58px] py-4 flex justify-between">
-            <Link className="flex items-center gap-0.5 text-black" to="/">
+            <MyLink className="flex items-center gap-0.5 text-black" to="/">
               <p className="text-xl">
                 Hasanur Mondal
               </p>
               <span className="text-red-600 font-bold">.</span>
-            </Link>
+            </MyLink>
           </div>
           <div className="flex mt-4 justify-between">
             <div className="flex flex-col w-[50%] sm:w-[40%] text-black items-start sm:items-end">
-              <Link className="slide-text flex px-0 sm:px-8 py-2 sm:w-52 text-xl font-medium text-black gap-2 transition-colors" to="/about">
+              <MyLink className="slide-text flex px-0 sm:px-8 py-2 sm:w-52 text-xl font-medium text-black gap-2 transition-colors" to="/about">
                 <HugeiconsIcon icon={ArrowUpRight01Icon} className="hidden sm:flex" />
                 About Me
-              </Link>
-              <Link className="slide-text flex px-0 sm:px-8 py-2 sm:w-52 text-xl font-medium text-black gap-2 transition-colors" to="/projects">
+              </MyLink>
+              <MyLink className="slide-text flex px-0 sm:px-8 py-2 sm:w-52 text-xl font-medium text-black gap-2 transition-colors" to="/projects">
                 <HugeiconsIcon icon={ArrowUpRight01Icon} className="hidden sm:flex" />
                 Projects
-              </Link>
-              <Link className="slide-text flex px-0 sm:px-8 py-2 sm:w-52 text-xl font-medium text-black gap-2 transition-colors" to="/blog">
+              </MyLink>
+              <MyLink className="slide-text flex px-0 sm:px-8 py-2 sm:w-52 text-xl font-medium text-black gap-2 transition-colors" to="/blog">
                 <HugeiconsIcon icon={ArrowUpRight01Icon} className="hidden sm:flex" />
                 Blog
-              </Link>
-              <Link className="slide-text flex px-0 sm:px-8 py-2 sm:w-52 text-xl font-medium text-black gap-2 transition-colors" to="/contact">
+              </MyLink>
+              <MyLink className="slide-text flex px-0 sm:px-8 py-2 sm:w-52 text-xl font-medium text-black gap-2 transition-colors" to="/contact">
                 <HugeiconsIcon icon={ArrowUpRight01Icon} className="hidden sm:flex" />
                 Contact Me
-              </Link>
+              </MyLink>
             </div>
             <div className="flex flex-col sm:flex-row w-[50%] sm:w-[35%] mt-2 gap-10 text-black pb-2 text-sm">
               <div className="flex flex-col sm:w-1/2 justify-between gap-4 h-full">

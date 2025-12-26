@@ -1,5 +1,3 @@
-import { Navbar } from "@/components/navbar";
-
 export default function DefaultLayout({
   children,
 }: {
@@ -7,7 +5,6 @@ export default function DefaultLayout({
 }) {
   return (
     <div className="relative flex flex-col h-[100svh]">
-      <Navbar />
       <main>
         {children}
       </main>

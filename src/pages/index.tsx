@@ -89,11 +89,11 @@ export default function IndexPage() {
           <p>🔥</p>
         </div>
       </section>
-      <section className="flex relative w-full h-[300vh]">
+      <section className="flex relative w-full h-[280vh]">
         <WhoIAm />
       </section>
-      <section className="flex relative w-full h-auto sm:h-[100vh] items-center justify-center -mt-[70vh]">
-        <p ref={AboutTextContainer} className="flex h-[150vh] sm:h-auto flex-wrap text-[42px] max-w-[75rem] justify-center leading-8 sm:leading-14 gap-2 my-6 sm:my-0">
+      <section className="flex relative w-full h-auto sm:h-[100vh] items-center justify-center -mt-[40vh] sm:-mt-[70vh]">
+        <p ref={AboutTextContainer} className="flex h-[150vh] sm:h-auto flex-wrap text-[42px] max-w-[75rem] justify-center leading-0 sm:leading-14 gap-2 px-10 sm:px-0">
           {text.split(" ").map((word, i) => (
             <span key={i} className="fade-word inline-block opacity-50">
               {word}
@@ -200,8 +200,8 @@ function ReviewSection() {
 
 
   return (
-    <section ref={sectionRef} className="flex relative w-full px-0 sm:px-4 h-[100vh] items-center overflow-hidden">
-      <div className="font-dm flex absolute top-10 p-2 gap-1 border border-white/20 rounded-full h-12 justify-center items-center left-1/2 -translate-x-1/2">
+    <section ref={sectionRef} className="flex relative w-full px-0 sm:px-4 h-[100vh] items-center overflow-hidden pt-16">
+      <div className="font-dm flex absolute top-18 p-2 gap-1 border border-white/20 rounded-full h-12 justify-center items-center left-1/2 -translate-x-1/2">
         <p>✨</p>
         <HugeiconsIcon
           icon={ArrowRight02FreeIcons}
