@@ -1,4 +1,4 @@
-import WhoIAm, { AboutSection } from "@/components/home/whoiam";
+import { AboutSection } from "@/components/home/whoiam";
 import DefaultLayout from "@/layouts/default";
 import { useRef } from "react";
 
