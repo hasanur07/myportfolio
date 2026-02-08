@@ -4,18 +4,17 @@ import { Add01Icon, Agreement02FreeIcons, ArrowRight02FreeIcons, CodeFolderIcon,
 import { HugeiconsIcon } from "@hugeicons/react";
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@heroui/button";
 import WhoIAm from "@/components/home/whoiam";
-import Projects from "@/components/home/project";
+import ProjectSection from "@/components/home/project_section";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function IndexPage() {
   return (
     <DefaultLayout>
-      <section className="flex relative flex-col w-full h-[100svh] items-center justify-center">
+      <section className="flex relative flex-col w-[100vw] p-0 h-[100svh] items-center justify-center">
         <span className="flex flex-col text-3xl font-medium justify-center items-center w-[120%] sm:w-full scale-80 sm:scale-100">
           <span className="flex gap-2 items-center">
             <p>I am</p>
@@ -67,8 +66,8 @@ export default function IndexPage() {
       <section className="flex relative w-full">
         <WhoIAm />
       </section>
-      <section className="flex relative w-screen">
-        <Projects />
+      <section className="flex relative w-full">
+        <ProjectSection />
       </section>
       <section className="flex relative w-full">
         <Futter />
@@ -79,34 +78,34 @@ export default function IndexPage() {
 
 
 function Futter() {
-  const divRef = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
-    gsap.matchMedia().add("(min-width: 640px)", () => {
-      const div = divRef.current;
-      if (!div) return;
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: div,
-          start: "top top",
-          end: "+=100%",
-          scrub: true,
-        }
-      });
-      tl.fromTo(div, {
-        xPercent: 100
-      }, {
-        xPercent: 0,
-      });
-      return () => {
-        tl.scrollTrigger?.kill();
-      };
-    });
-  }, []);
+  // const divRef = useRef<HTMLDivElement>(null);
+  // useLayoutEffect(() => {
+  //   gsap.matchMedia().add("(min-width: 640px)", () => {
+  //     const div = divRef.current;
+  //     if (!div) return;
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: div,
+  //         start: "top top",
+  //         end: "+=100%",
+  //         scrub: true,
+  //       }
+  //     });
+  //     tl.fromTo(div, {
+  //       xPercent: 100
+  //     }, {
+  //       xPercent: 0,
+  //     });
+  //     return () => {
+  //       tl.scrollTrigger?.kill();
+  //     };
+  //   });
+  // }, []);
   return (
-    <div className="flex flex-col h-[100svh] sm:h-[250vh] w-screen sm:-mt-[200vh] relative">
+    <div className="flex flex-col h-[100dvh] w-screen relative">
       <div className="flex sm:sticky top-0 overflow-hidden h-screen justify-center items-center">
-        <section ref={divRef} className="flex flex-col gap-6 w-full h-screen justify-center items-center bg-black">
-          <img src="/avatar-2.png" className="w-[100px]" />
+        <section className="flex flex-col gap-6 w-full h-screen justify-center items-center bg-black">
+          {/* <img src="/avatar-2.png" className="w-[100px]" /> */}
           <h5 className="text-3xl sm:text-[50px] sm:leading-16 text-center">Are you looking for the<br />perfect one?</h5>
           <p className="text-center text-lg font-light px-2 sm:px-0">Then you’re in the right place. Get the best designs you’re looking for.<br />Just reach out and let me know!</p>
           <div className="flex gap-4">

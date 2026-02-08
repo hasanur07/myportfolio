@@ -1,14 +1,16 @@
-import { title } from "@/components/primitives";
+import WhoIAm, { AboutSection } from "@/components/home/whoiam";
 import DefaultLayout from "@/layouts/default";
+import { useRef } from "react";
 
-export default function DocsPage() {
+export default function AboutPage() {
+  const mainRef = useRef<HTMLDivElement>(null);
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className={title()}>About</h1>
+      <div className="flex relative w-full h-[200vh]">
+        <div ref={mainRef} className="w-screen h-screen sticky top-0">
+          <AboutSection mainRef={mainRef} />
         </div>
-      </section>
+      </div>
     </DefaultLayout>
   );
 }

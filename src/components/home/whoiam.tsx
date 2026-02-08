@@ -80,11 +80,11 @@ function WhoIAm() {
                     tl2.fromTo(mainRef.current, {
                         x: 0,
                     }, {
-                        x: "-275vw",
+                        x: "-320vw",
                         ease: "none",
-                        duration: 4,
+                        duration: 5,
                     }, 0);
-                    const containers = mainRef.current!.querySelectorAll(".container");
+                    const containers = mainRef.current!.querySelectorAll(".containers");
                     containers.forEach((container, index) => {
                         tl2.fromTo(container, {
                             width: index == 0 ? "20vw" : "10vw"
@@ -163,22 +163,6 @@ function WhoIAm() {
                             );
                         });
                     });
-
-                    const tl3 = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: mainRef.current,
-                            start: "top+=600% top",
-                            end: "top+=700% top",
-                            scrub: true,
-                        }
-                    });
-                    tl3.fromTo(containers[3], {
-                        width: "70vw",
-                    }, {
-                        width: "30vw",
-                        ease: "none",
-                        duration: 1,
-                    })
                     return () => {
                         tl.kill();
                         tl2.kill();
@@ -196,7 +180,7 @@ function WhoIAm() {
                         scrollTrigger: {
                             trigger: mainRef.current,
                             start: "top-=50% top",
-                            end: "top+=100% top",
+                            end: "top+=50% top",
                             scrub: true,
                         }
                     });
@@ -239,7 +223,7 @@ function WhoIAm() {
                     const tl2 = gsap.timeline({
                         scrollTrigger: {
                             trigger: mainRef.current,
-                            start: "top+=100% top",
+                            start: "top+=50% top",
                             end: "top+=400% top",
                             scrub: true,
                         }
@@ -249,17 +233,21 @@ function WhoIAm() {
                     }, {
                         y: "-100vh",
                         ease: "none",
-                        duration: 0.2,
+                        duration: 1,
                     }, 0);
-                    const containers = mainRef.current!.querySelectorAll(".container");
+                    const containers = mainRef.current!.querySelectorAll(".containers");
                     containers.forEach((container, index) => {
                         tl2.fromTo(container, {
                             y: "100vh",
+                            borderTopLeftRadius: "0%",
+                            borderTopRightRadius: "0%",
                         }, {
                             y: 0,
+                            borderTopLeftRadius: "20px",
+                            borderTopRightRadius: "20px",
                             ease: "none",
-                            duration: 0.5,
-                            delay: index * 0.5,
+                            duration: 1,
+                            delay: index * 1,
                         }, 0);
                     });
                 })
@@ -272,7 +260,7 @@ function WhoIAm() {
         return () => ctx.revert();
     }, []);
     return (
-        <div className="flex h-[2200vh] sm:h-[700vh] relative w-full">
+        <div className="flex h-[1100vh] sm:h-[800vh] relative w-full">
             <div className="h-screen sticky top-0 overflow-hidden">
                 <div ref={mainRef} className="flex flex-col sm:flex-row w-screen sm:w-[460vw] sm:h-screen">
                     <div ref={headerRef} className="flex flex-col w-screen h-[100vh] justify-center items-center pt-[58px] overflow-hidden">
@@ -280,12 +268,12 @@ function WhoIAm() {
                         <h5 className="text-2 font-anton text-7xl sm:text-[200px] bg-black z-2 transition-none">WHO I AM</h5>
                         <h5 className="text-3 font-anton text-7xl sm:text-[200px] transition-none">WHO I AM</h5>
                     </div>
-                    <div className="flex relative flex-col sm:flex-row h-[400vh] sm:h-[100vh] w-screen sm:w-[360vw]">
-                        <div className="container absolute sm:relative flex flex-col w-screen sm:w-[90vw] h-[100vh] bg-amber-400 overflow-hidden">
-                            <div className="flex w-full p-6 sm:p-0 h-[60%] sm:h-[80%]">
-                                <img src="/cover/cover-1.avif" alt="" className="flex w-full h-full object-cover" />
+                    <div className="flex relative flex-col sm:flex-row h-[100vh] w-screen sm:w-[360vw] pt-[58px] sm:pt-0">
+                        <div className="containers absolute sm:relative flex flex-col w-screen sm:w-[90vw] h-[100dvh] bg-[#df7300]">
+                            <div className="flex w-full p-6 sm:p-0 h-[calc(70%-120px)] sm:h-[80%]">
+                                <img src="/cover/doit.jpeg" alt="" className="flex w-full h-full object-cover rounded-lg sm:rounded-none" />
                             </div>
-                            <div className="flex flex-col justify-between text-black h-[40%] sm:h-[20%] p-6 sm:p-4 w-full sm:w-[70vw]">
+                            <div className="flex flex-col justify-between text-black h-[30%] sm:h-[20%] p-6 sm:p-4 w-full sm:w-[70vw]">
                                 <div className="flex justify-between text-sm sm:text-base">
                                     <p className="slide px-4 py-1 border-1 border-black rounded-full">2022 - 2026</p>
                                     <p className="split-slide">A FULL STACK DEVELOPER</p>
@@ -294,11 +282,11 @@ function WhoIAm() {
                                 <p>001</p>
                             </div>
                         </div>
-                        <div className="container absolute sm:relative flex flex-col w-screen sm:w-[90vw] h-[100vh] bg-blue-400">
-                            <div className="flex w-full p-6 sm:p-0 h-[60%] sm:h-[80%]">
-                                <img src="/cover/cover-2.avif" alt="" className="flex w-full h-full object-cover" />
+                        <div className="containers absolute sm:relative flex flex-col w-screen sm:w-[90vw] h-[100dvh] bg-[#0070df]">
+                            <div className="flex w-full p-6 sm:p-0 h-[calc(70%-120px)] sm:h-[80%]">
+                                <img src="/cover/designer.jpeg" alt="" className="flex w-full h-full object-cover rounded-lg sm:rounded-none" />
                             </div>
-                            <div className="flex flex-col justify-between text-black h-[40%] sm:h-[20%] p-6 sm:p-4 w-full sm:w-[70vw]">
+                            <div className="flex flex-col justify-between text-black h-[30%] sm:h-[20%] p-6 sm:p-4 w-full sm:w-[70vw]">
                                 <div className="flex justify-between text-sm sm:text-base">
                                     <p className="slide px-4 py-1 border-1 border-black rounded-full">2022 - 2026</p>
                                     <p className="split-slide">I DESIGN WHICH YOU THINK</p>
@@ -307,24 +295,24 @@ function WhoIAm() {
                                 <p>002</p>
                             </div>
                         </div>
-                        <div className="container absolute sm:relative flex flex-col w-screen sm:w-[90vw] h-[100vh] bg-emerald-400">
-                            <div className="flex w-full p-6 sm:p-0 h-[60%] sm:h-[80%]">
-                                <img src="/cover/cover-3.avif" alt="" className="flex w-full h-full object-cover" />
+                        <div className="containers absolute sm:relative flex flex-col w-screen sm:w-[90vw] h-[100dvh] bg-[#11d10b]">
+                            <div className="flex w-full p-6 sm:p-0 h-[calc(70%-120px)] sm:h-[80%]">
+                                <img src="/cover/nature.jpeg" alt="" className="flex w-full h-full object-cover rounded-lg sm:rounded-none" />
                             </div>
-                            <div className="flex flex-col justify-between text-black h-[40%] sm:h-[20%] p-6 sm:p-4 w-full sm:w-[70vw]">
+                            <div className="flex flex-col justify-between text-black h-[30%] sm:h-[20%] p-6 sm:p-4 w-full sm:w-[70vw]">
                                 <div className="flex justify-between text-sm sm:text-base">
                                     <p className="slide px-4 py-1 border-1 border-black rounded-full">2026</p>
                                     <p className="split-slide">I BUILD WHICH PEOPLE WANT</p>
                                 </div>
-                                <h5 className="split-slide text-3xl text-center">Entereponer</h5>
+                                <h5 className="split-slide text-3xl text-center">Entrepreneur</h5>
                                 <p>003</p>
                             </div>
                         </div>
-                        <div className="container absolute sm:relative flex flex-col w-screen sm:w-[90vw] h-[100vh] bg-purple-400">
-                            <div className="flex w-full p-6 sm:p-0 h-[60%] sm:h-[80%]">
-                                <img src="/cover/cover-4.avif" alt="" className="flex w-full h-full object-cover" />
+                        <div className="containers absolute sm:relative flex flex-col w-screen sm:w-[90vw] h-[100dvh] bg-[#da0000]">
+                            <div className="flex w-full p-6 sm:p-0 h-[calc(70%-120px)] sm:h-[80%]">
+                                <img src="/cover/mountain.jpeg" alt="" className="flex w-full h-full object-cover rounded-lg sm:rounded-none" />
                             </div>
-                            <div className="flex flex-col justify-between text-black h-[40%] sm:h-[20%] p-6 sm:p-4 w-full sm:w-[70vw]">
+                            <div className="flex flex-col justify-between text-black h-[30%] sm:h-[20%] p-6 sm:p-4 w-full sm:w-[70vw]">
                                 <div className="flex justify-between text-sm sm:text-base">
                                     <p className="slide px-4 py-1 border-1 border-black rounded-full">2026</p>
                                     <p className="split-slide">WANT TO SEE THE WORLD</p>
@@ -333,11 +321,111 @@ function WhoIAm() {
                                 <p>004</p>
                             </div>
                         </div>
+                        <div className="containers bg-black absolute sm:relative flex flex-col h-[calc(100dvh-58px)] sm:h-[100dvh] w-screen sm:mt-0">
+                            <AboutSection mainRef={mainRef} />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
+}
+
+export function AboutSection({
+    mainRef,
+}: {
+    mainRef: React.RefObject<HTMLDivElement>;
+}) {
+    const divRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        const div = divRef.current;
+        if (!div) return;
+        gsap.matchMedia().add("(min-width: 640px)", () => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: mainRef.current,
+                    start: "top+=600% top",
+                    end: "top+=700% top",
+                    scrub: true,
+                }
+            });
+            const ctx = gsap.context(() => {
+                const lines = div.querySelectorAll("h5");
+
+                lines.forEach((line) => {
+                    new SplitText(line, {
+                        type: "words",
+                        wordsClass: "word",
+                    });
+                });
+
+                const words = div.querySelectorAll(".word");
+
+                tl.fromTo(
+                    words,
+                    { color: "rgba(255,255,255,0.1)" },
+                    {
+                        color: "rgba(255,25,25,1)",
+                        duration: 0.1,
+                        stagger: 0.15,
+                        ease: "power3.out",
+                    }
+                );
+            }, div);
+            return () => {
+                tl.kill();
+                ctx.revert();
+            }
+        }).add("(max-width: 639px)", () => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: mainRef.current,
+                    start: "top+=400% top",
+                    end: "top+=500% top",
+                    scrub: true,
+                }
+            });
+            const ctx = gsap.context(() => {
+                const lines = div.querySelectorAll("h5");
+
+                lines.forEach((line) => {
+                    new SplitText(line, {
+                        type: "words",
+                        wordsClass: "word",
+                    });
+                });
+
+                const words = div.querySelectorAll(".word");
+
+                tl.fromTo(
+                    words,
+                    { color: "rgba(255,255,255,0.1)" },
+                    {
+                        color: "rgba(255,25,25,1)",
+                        duration: 0.1,
+                        stagger: 0.15,
+                        ease: "power3.out",
+                    }
+                );
+            }, div);
+            return () => {
+                tl.kill();
+                ctx.revert();
+            };
+
+        }, []);
+    }, [mainRef]);
+
+
+    return (
+        <div ref={divRef} className="flex relative flex-col h-full w-screen justify-center items-start p-6 px-16 text-4xl font-[700] uppercase text-[rgba(255,255,255,0.1)]">
+            <h5>BUT,</h5>
+            <h5>First Of All</h5>
+            <h5>I am that person</h5>
+            <h5>Who belives in one god</h5>
+            <h5>Who hate the current world</h5>
+        </div>
+    )
 }
 
 export default WhoIAm;
