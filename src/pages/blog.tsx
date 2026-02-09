@@ -1,10 +1,10 @@
-import ProjectSection from "@/components/home/project_section";
+import CTA from "@/components/home/cta/cta";
 import DefaultLayout from "@/layouts/default";
 
-export default function DocsPage() {
+export default function BlogPage() {
   return (
     <DefaultLayout>
-      <ProjectSection />
+      <CTA />
     </DefaultLayout>
   );
 }

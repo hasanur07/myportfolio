@@ -1,0 +1,14 @@
+.project-intro h1{
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+    transition: none;
+    opacity: 0;
+}
+
+.project-intro h5{
+    font-size: 1.3rem;
+    line-height: 1.25;
+    transition: none;
+    opacity: 0;
+}

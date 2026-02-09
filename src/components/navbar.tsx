@@ -240,9 +240,9 @@ export const Navbar = () => {
               </div>
               <div className="flex flex-col sm:w-1/2 gap-4 justify-between h-full">
                 <div className="flex flex-col">
-                  <HeroLink className="slide-text font-bold text-sm text-black">INSTAGRAM</HeroLink>
-                  <HeroLink className="slide-text font-bold text-sm text-black">LINKEDIN</HeroLink>
-                  <HeroLink className="slide-text font-bold text-sm text-black">GITHUB</HeroLink>
+                  <HeroLink href="https://instagram.com/hasanur.12" className="slide-text font-bold text-sm text-black">INSTAGRAM</HeroLink>
+                  <HeroLink href="https://linkedin.com/in/mrhasanur" className="slide-text font-bold text-sm text-black">LINKEDIN</HeroLink>
+                  <HeroLink href="https://github.com/hasanur07" className="slide-text font-bold text-sm text-black">GITHUB</HeroLink>
                 </div>
                 <div>
                   <p className="slide-text font-bold text-black">+91 9051713742</p>
@@ -253,7 +253,7 @@ export const Navbar = () => {
         </div>
         <div className="flex w-full h-[26vh] sm:h-[50vh] pb-6 pt-16 justify-between items-end">
           <div className="section-box flex w-[40%] p-2 sm:p-6 bg-black/10">
-            <img src="/689c61f22aa5f873796412.png" alt="Illustration" className="w-full h-full object-cover" />
+            <img src="/cover/app-showcase.png" alt="App Showcase" className="w-full h-full object-cover" />
           </div>
           <div className="text-black flex items-end justify-end">
             <h1 className="section-header -mb-2 sm:-mb-6"

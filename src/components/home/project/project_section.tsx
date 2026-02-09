@@ -1,3 +1,4 @@
+import { projects } from "@/config/project";
 import "@/styles/project/style.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -87,30 +88,45 @@ export default function ProjectSection() {
                 });
             },
         });
+        const imageList = main.querySelectorAll(".project-img");
+        const handleClick = (e: MouseEvent) => {
+            const target = e.currentTarget as HTMLElement;
+            const url = target.getAttribute("data-url");
+            if (url) {
+                window.open(url, "_blank");
+            }
+        };
+        imageList.forEach((img) => {
+            img.addEventListener("click", handleClick as EventListener);
+        });
+        return () => {
+            imageList.forEach((img) => {
+                img.removeEventListener("click", handleClick as EventListener);
+            });
+            ScrollTrigger.getAll().forEach((st) => st.kill());
+        };
     }, [mainRef]);
     return (
         <div className="relative w-screen h-[600vh] bg-black">
             <div ref={mainRef} className="top-0 sticky w-screen h-[100dvh] p-6 pt-16 sm:p-16 overflow-hidden">
                 <div className="project-index">
-                    <h5>01/07</h5>
+                    <h5>01/{String(projects.length).padStart(2, "0")}</h5>
                 </div>
                 <div className="project-images">
-                    <div className="project-img"><img src="/projects/project-1.jpeg" alt="" /></div>
-                    <div className="project-img"><img src="/projects/project-2.jpeg" alt="" /></div>
-                    <div className="project-img"><img src="/projects/project-3.jpeg" alt="" /></div>
-                    <div className="project-img"><img src="/projects/project-4.jpeg" alt="" /></div>
-                    <div className="project-img"><img src="/projects/project-5.jpeg" alt="" /></div>
-                    <div className="project-img"><img src="/projects/project-6.jpeg" alt="" /></div>
-                    <div className="project-img"><img src="/projects/project-7.jpeg" alt="" /></div>
+                    {
+                        projects.map((project, index) => (
+                            <div key={index} className="project-img" data-url={project.projectUrl}>
+                                <img src={project.imageUrl} alt={project.title} />
+                            </div>
+                        ))
+                    }
                 </div>
                 <div className="project-names">
-                    <p>DocLet</p>
-                    <p>NextZen</p>
-                    <p>The World</p>
-                    <p>Your Day</p>
-                    <p>Where Pixel Mealt</p>
-                    <p>Why Not</p>
-                    <p>The Royal Lybrary</p>
+                    {
+                        projects.map((project, index) => (
+                            <p key={index}>{project.title}</p>
+                        ))
+                    }
                 </div>
             </div>
         </div>

@@ -7,7 +7,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from "react-router-dom";
 import { Button } from "@heroui/button";
 import WhoIAm from "@/components/home/whoiam";
-import ProjectSection from "@/components/home/project_section";
+import ProjectSection from "@/components/home/project/project_section";
+import ProjectIntro from "@/components/home/project/project_intro";
+import CTA from "@/components/home/cta/cta";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,9 +69,15 @@ export default function IndexPage() {
         <WhoIAm />
       </section>
       <section className="flex relative w-full">
+        <ProjectIntro />
+      </section>
+      <section className="flex relative w-full">
         <ProjectSection />
       </section>
       <section className="flex relative w-full">
+        <CTA />
+      </section>
+      <section className="relative w-full hidden">
         <Futter />
       </section>
     </DefaultLayout >
