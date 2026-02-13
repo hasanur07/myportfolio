@@ -104,24 +104,4 @@ const CompanionPrivacyPolicy: React.FC = () => {
   );
 };
 
-const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    maxWidth: "900px",
-    margin: "40px auto",
-    padding: "0 20px",
-    fontFamily: "Arial, Helvetica, sans-serif",
-    lineHeight: 1.6,
-    color: "#333",
-  },
-  heading: {
-    color: "#1a4fd8",
-    borderBottom: "2px solid #e5e5e5",
-    paddingBottom: "10px",
-  },
-  updated: {
-    fontSize: "0.9rem",
-    color: "#666",
-  },
-};
-
 export default CompanionPrivacyPolicy;
