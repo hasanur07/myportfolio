@@ -91,9 +91,9 @@ const CompanionPrivacyPolicy: React.FC = () => {
 
       <h2>10. Contact Us</h2>
       <p>
-        <strong>Email:</strong> support@companionlms.com
+        <strong>Email:</strong> hasanur@nextzen.co.in
         <br />
-        <strong>Organization:</strong> Companion LMS Team
+        <strong>Organization:</strong> NextZen For JIS Companion
       </p>
 
       <p>
