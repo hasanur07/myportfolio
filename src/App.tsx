@@ -7,6 +7,7 @@ import BlogPage from "@/pages/blog";
 import AboutPage from "@/pages/about";
 import { useEffect } from "react";
 import Lenis from 'lenis'
+import CompanionPrivacyPolicy from "./pages/privacy/companion/privacy";
 
 function App() {
   useEffect(() => {
@@ -41,6 +42,7 @@ function App() {
       <Route element={<PricingPage />} path="/pricing" />
       <Route element={<BlogPage />} path="/blog" />
       <Route element={<AboutPage />} path="/about" />
+      <Route element={<CompanionPrivacyPolicy />} path="/privacy/companion" />
     </Routes>
   );
 }
