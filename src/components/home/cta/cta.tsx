@@ -65,14 +65,14 @@ export default function CTA() {
         });
 
         tlRef.current
-            .fromTo(pragraph, { opacity: 1 }, { opacity: 0 }, 0)
-            .to([you, think, it1, I, build, it2], { x: 0 }, 1)
+            .fromTo(pragraph, { opacity: 1 }, { opacity: 0, duration: 1 }, 0)
+            .to([you, think, it1, I, build, it2], { x: 0, duration: 1 }, 0.75)
             .to(
                 [you, think, it1, I, build, it2],
-                { y: 0, fontSize: targetFontSize},
-                2
+                { y: 0, fontSize: targetFontSize, duration: 1 },
+                1.75
             )
-            .to([comma, period], { opacity: 1, fontSize: targetFontSize, stagger: 0.1 }, 3);
+            .to([comma, period], { opacity: 1, fontSize: targetFontSize, stagger: 0.1, duration: 1 }, 2.75);
     };
 
     useEffect(() => {
