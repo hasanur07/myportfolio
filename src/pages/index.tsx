@@ -51,8 +51,8 @@ export default function IndexPage() {
             <p>pixels of design</p>
           </span>
         </span>
-        <div className="font-dm flex absolute bottom-10 p-2 gap-1 border border-white/20 rounded-full h-12 justify-center items-center">
-          <p>❤️</p>
+        <div className="font-dm flex absolute bottom-10 p-2 pl-4 gap-1 border border-white/20 rounded-full h-12 justify-center items-center">
+          <p>You</p>
           <HugeiconsIcon
             icon={Add01Icon}
             size={16}
@@ -77,7 +77,7 @@ export default function IndexPage() {
       <section className="flex relative w-full">
         <CTA />
       </section>
-      <section className="relative w-full hidden">
+      <section className="relative w-full">
         <Futter />
       </section>
     </DefaultLayout >
@@ -113,7 +113,7 @@ function Futter() {
     <div className="flex flex-col h-[100dvh] w-screen relative">
       <div className="flex sm:sticky top-0 overflow-hidden h-screen justify-center items-center">
         <section className="flex flex-col gap-6 w-full h-screen justify-center items-center bg-black">
-          {/* <img src="/avatar-2.png" className="w-[100px]" /> */}
+          <img src="/icon/hasanur.jpeg" className="w-[100px]" />
           <h5 className="text-3xl sm:text-[50px] sm:leading-16 text-center">Are you looking for the<br />perfect one?</h5>
           <p className="text-center text-lg font-light px-2 sm:px-0">Then you’re in the right place. Get the best designs you’re looking for.<br />Just reach out and let me know!</p>
           <div className="flex gap-4">

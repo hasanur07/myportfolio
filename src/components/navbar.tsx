@@ -121,12 +121,13 @@ export const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="w-full h-[58px] px-6 sm:px-16 py-4 flex justify-between fixed top-0 left-0 right-0 z-50">
+      className="w-full h-[58px] px-6 sm:px-16 pt-[calc(18px+env(safe-area-inset-top))] flex justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out">
       <Link to="/" className="flex items-center gap-0.5 text-white">
-        <p className="text-xl">
-          Hasanur Mondal
-        </p>
-        <span className="text-red-600 font-bold">.</span>
+        <img
+          src="/icon/hasanur-full.png"
+          alt="Logo"
+          className="h-6"
+        />
       </Link>
 
       <div className="flex items-center z-10">
