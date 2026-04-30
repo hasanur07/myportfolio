@@ -121,7 +121,7 @@ export const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="w-full h-[58px] px-6 sm:px-16 pt-[calc(18px+env(safe-area-inset-top))] flex justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out">
+      className="w-full h-[58px] px-6 sm:px-16 pt-[calc(1rem+env(safe-area-inset-top))] flex justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out">
       <Link to="/" className="flex items-center gap-0.5 text-white">
         <img
           src="/icon/hasanur-full.png"
@@ -200,12 +200,13 @@ export const Navbar = () => {
         }}
       >
         <div>
-          <div className="w-full h-[58px] py-4 flex justify-between">
-            <MyLink className="flex items-center gap-0.5 text-black" to="/">
-              <p className="text-xl">
-                Hasanur Mondal
-              </p>
-              <span className="text-red-600 font-bold">.</span>
+          <div className="w-full h-[42px] mt-[calc(1rem+env(safe-area-inset-top))] flex">
+            <MyLink className="flex items-center gap-0.5" to="/">
+              <img
+                src="/icon/hasanur-full.png"
+                alt="Logo"
+                className="h-6 brightness-0"
+              />
             </MyLink>
           </div>
           <div className="flex mt-4 justify-between">
