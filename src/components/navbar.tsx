@@ -236,15 +236,15 @@ export const Navbar = () => {
                   <p className="slide-text font-bold text-black">WEST BENGAL</p>
                   <p className="slide-text font-bold text-black">INDIA</p>
                 </div>
-                <a href="mailto:hasanur@doclet.app" className="slide-text font-bold text-black">
-                  hasanur@doclet.app
+                <a href="mailto:hello@hasanur.in" className="slide-text font-bold text-black">
+                  hello@hasanur.in
                 </a>
               </div>
               <div className="flex flex-col sm:w-1/2 gap-4 justify-between h-full">
                 <div className="flex flex-col">
-                  <HeroLink href="https://instagram.com/hasanur.12" className="slide-text font-bold text-sm text-black">INSTAGRAM</HeroLink>
-                  <HeroLink href="https://linkedin.com/in/mrhasanur" className="slide-text font-bold text-sm text-black">LINKEDIN</HeroLink>
-                  <HeroLink href="https://github.com/hasanur07" className="slide-text font-bold text-sm text-black">GITHUB</HeroLink>
+                  <a href="https://instagram.com/hasanur.12" className="slide-text font-bold text-sm text-black">INSTAGRAM</a>
+                  <a href="https://linkedin.com/in/mrhasanur" className="slide-text font-bold text-sm text-black">LINKEDIN</a>
+                  <a href="https://github.com/hasanur07" className="slide-text font-bold text-sm text-black">GITHUB</a>
                 </div>
                 <div>
                   <p className="slide-text font-bold text-black">+91 9051713742</p>
