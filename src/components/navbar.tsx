@@ -5,7 +5,7 @@ import CustomEase from "gsap/CustomEase";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 import { Link } from "react-router-dom";
-import { Link as HeroLink } from "@heroui/link";
+//import { Link as HeroLink } from "@heroui/link";
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", "M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1 ");
 
