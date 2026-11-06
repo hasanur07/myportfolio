@@ -242,7 +242,7 @@ export const Navbar = () => {
               </div>
               <div className="flex flex-col sm:w-1/2 gap-4 justify-between h-full">
                 <div className="flex flex-col">
-                  <a href="https://instagram.com/hasanur.12" className="slide-text font-bold text-sm text-black">INSTAGRAM</a>
+                  <a href="https://instagram.com/hello.hasanur" className="slide-text font-bold text-sm text-black">INSTAGRAM</a>
                   <a href="https://linkedin.com/in/mrhasanur" className="slide-text font-bold text-sm text-black">LINKEDIN</a>
                   <a href="https://github.com/hasanur07" className="slide-text font-bold text-sm text-black">GITHUB</a>
                 </div>
